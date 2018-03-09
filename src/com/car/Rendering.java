@@ -15,20 +15,15 @@ public class Rendering extends JPanel {
 
     public Rendering() {
 
-        Timer BlueAction = new Timer(50, new ActionListener() {
+        Timer action = new Timer(50, new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 Bluecar.move();
-                repaint();
-            }
-        });
-        Timer RedAction = new Timer(50, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
                 Redcar.move();
                 repaint();
             }
         });
-        BlueAction.start();
-        RedAction.start();
+        action.start();
     }
 
     // Override the method by adding our options.
@@ -45,7 +40,7 @@ public class Rendering extends JPanel {
         Image image = null;
 
         try {
-            image = ImageIO.read(new File("src/road.jpg"));
+            image = ImageIO.read(new File("assets/road.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
